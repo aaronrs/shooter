@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/TextDisplay.gd" type="Script" id=1]
+[ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Setup.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Text2.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="Text" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_top = 1.99025
+margin_right = 1000.0
+margin_bottom = 1001.99
+custom_fonts/normal_font = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 20.0
+margin_top = 190.0
+margin_right = 389.0
+margin_bottom = 435.0
+custom_fonts/normal_font = SubResource( 2 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="S" to="RichTextLabel" method="_on_S_timeout"]
+[connection signal="timeout" from="S" to="RichTextLabel2" method="_on_S_timeout"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Button.png" type="Texture" id=2]
+
+[node name="Menu" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 2000.0
+margin_bottom = 1000.0
+color = Color( 0.0745098, 0.101961, 0.407843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 135.989
+margin_top = 40.2836
+margin_right = 897.989
+margin_bottom = 346.284
+icon = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

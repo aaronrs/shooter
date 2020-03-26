@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Floor.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Main walls.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Text.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 300, 1000 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Floor" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="Floor"]
+texture = ExtResource( 2 )
+
+[node name="Walls" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Wall1" type="StaticBody2D" parent="Walls" groups=[
+"Walls",
+]]
+position = Vector2( 1600, 0 )
+scale = Vector2( 2, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Walls/Wall1"]
+texture = ExtResource( 3 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls" groups=[
+"Walls",
+]]
+position = Vector2( -1600, 0 )
+scale = Vector2( 2, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Walls/Wall2"]
+texture = ExtResource( 3 )
+
+[node name="Wall3" type="StaticBody2D" parent="Walls" groups=[
+"Walls",
+]]
+position = Vector2( 0, 1300 )
+rotation = 1.5708
+scale = Vector2( 1, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Walls/Wall3"]
+texture = ExtResource( 3 )
+
+[node name="Wall4" type="StaticBody2D" parent="Walls" groups=[
+"Walls",
+]]
+position = Vector2( 0, -1300 )
+rotation = 1.5708
+scale = Vector2( 1, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Walls/Wall4"]
+texture = ExtResource( 3 )
+
+[node name="Text" parent="." instance=ExtResource( 4 )]
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 261.577, -10.1201 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
